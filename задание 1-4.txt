@@ -1,0 +1,38 @@
+import random
+
+
+def diff_max_min(arr):
+    return max(arr) - min(arr) if arr else 0
+
+
+def create_random_array(size, min_val=0, max_val=100):
+    return [random.randint(min_val, max_val) for _ in range(size)]
+
+
+def create_array_from_input():
+    size = int(input("Размер массива: "))
+    return [int(input(f"Элемент {i+1}: ")) for i in range(size)]
+
+
+def sum_matrix(matrix, by_rows=True):
+    if by_rows:
+        return [sum(row) for row in matrix]
+    else:
+        return [sum(row[i] for row in matrix) for i in range(len(matrix[0]))]
+
+
+if __name__ == "__main__":
+    # Задание 2
+    arr = create_random_array(5, 1, 50)
+    print("Случайный массив:", arr)
+    
+
+    print("Разница max-min:", diff_max_min(arr))
+    
+
+    matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+    print("Матрица:", matrix)
+    print("Суммы по строкам:", sum_matrix(matrix, True))
+    print("Суммы по столбцам:", sum_matrix(matrix, False))
+    
+   
